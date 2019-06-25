@@ -1,8 +1,14 @@
-{% block home %}
-{% csrf_token %}
 
+{% extends 'ecommerce/base.html' %}
+
+{% load staticfiles %}
+
+{% block home %}
+
+{% csrf_token %}
+<br> <br>
 <div class="connected">
-          To keep connected, Please Sign Up with you personal information<br> by Username & password  <i class="fa fa-bell bells"></i>
+          WELCOME TO HOME PAGE <br> ECOMMERCE WEBSITE <i class="fa fa-bell bells"></i>
       </div>
 
 {%  endblock %}
