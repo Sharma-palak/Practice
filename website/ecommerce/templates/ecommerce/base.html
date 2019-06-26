@@ -9,14 +9,9 @@
 <div class="topnav" id="myTopnav">
   <a href="{% url 'home'%}" class="active">Home</a>
   <a href="{% url 'login' %}">Login</a>
-    <div class="dropdown">
-    <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-    </div>
   <a href="{% url 'logout' %}">Logout</a>
+  <a href ="{% url 'signup' %}" data-target="#news-create" data-toggle="modal" >Sign Up </a>
+
 
 
     <i class="fa fa-bars"></i>
@@ -24,6 +19,10 @@
 </div>
 
 {% block home %}
+
+{% endblock %}
+
+{% block signup %}
 
 {% endblock %}
 

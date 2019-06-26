@@ -90,6 +90,7 @@ class Activate_Otp(View):
                 user1.is_active = True
                 user1.save()
                 login(request,user1)
+                otp_key.delete()
                 return redirect('home')
             else :
 
@@ -111,7 +112,7 @@ class Login(View):
         if user is not None:
             if user.is_active:
                 login(request ,user)
-                return render(request ,'ecommerce/home.html')
+                return redirect('home')
             else :
                 return HttpResponse('Please Verify Your Otp first')
         else :
