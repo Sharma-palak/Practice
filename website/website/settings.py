@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'widget_tweaks',
+    # 'widget_tweaks',
     'ecommerce',
     'django.contrib.admin',
     'django.contrib.auth',

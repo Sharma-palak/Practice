@@ -8,6 +8,7 @@ from .models import *
 from django.contrib import messages
 import random
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -26,12 +27,11 @@ class SignUp(View):
     def post(self, request, *args, **kwargs):
         form = SignupForm(request.POST)
 
-
         if form.is_valid():
-
             user = form.save(commit=False)
             user.is_active = False
             user.save()
+
             subject = 'Your Ecommerce OTP is here'
             otp = random.randint(999,9999)
             otp_key = Otp_Generate.objects.create(user=user,otp=otp)
@@ -108,6 +108,8 @@ class Login(View):
     def post(self ,request ,*args ,**kwargs):
         username = request.POST['username']
         password = request.POST['password']
+        # username =forms.cleaned_data.get('username')
+        # password = forms.cleaned_data.get('password')
         user = authenticate(username =username ,password =password)
         if user is not None:
             if user.is_active:
