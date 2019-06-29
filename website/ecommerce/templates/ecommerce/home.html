@@ -10,7 +10,18 @@
 <div class="connected">
 
           WELCOME TO HOME PAGE <br> ECOMMERCE WEBSITE <i class="fa fa-bell bells"></i>
-      </div>
 
+</div>
+<div>
+{% if Product %}
+{% for p in Product %}
+    <img src="{{p.image.url}}">
+<p>  {{p.name}} </p>
+<p>{{p.quantity}}</p>
+
+{% endfor %}
+{% endif %}
+</div>
 
 {%  endblock %}
+

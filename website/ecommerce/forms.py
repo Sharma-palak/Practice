@@ -80,3 +80,4 @@ class LoginForm(forms.ModelForm):
         if(not key):
             raise forms.ValidationError("Incorrect password")
         return password
+

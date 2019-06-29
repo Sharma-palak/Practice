@@ -13,6 +13,7 @@ urlpatterns = [
     re_path(r'^login/$' ,views.Login.as_view() ,name ='login'),
     re_path(r'^logout/$' ,views.Logout.as_view() , name ='logout'),
 
+
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

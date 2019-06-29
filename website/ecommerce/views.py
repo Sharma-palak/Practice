@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import *
@@ -67,9 +65,10 @@ class SignUp(View):
 
 class Home(View):
 
-
     def get(self,request,*args,**kwargs):
-       return render(request , 'ecommerce/home.html')
+        context ={'Product': Product.objects.order_by('id')}
+        print(context)
+        return render(request , 'ecommerce/home.html',context)
 
 
 class Activate_Otp(View):
@@ -134,4 +133,5 @@ class Logout(View):
     def get(self ,request ,*args ,**kwargs):
         logout(request)
         return redirect('home')
+
 
