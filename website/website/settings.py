@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'widget_tweaks',
+    'ckeditor',
+     'mptt',
     'ecommerce',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,3 +135,15 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'palak2906lucknow@gmail.com'
 EMAIL_HOST_PASSWORD = 'palak9415152174'
 EMAIL_PORT = 587
+
+
+CKEDITOR_UPLOAD_PATH = 'upload/'
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+CKEDITOR_FILENAME_GENERATOR = 'ecommerce.utils.get_filename'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 200,
+        'width': 700,
+    },}

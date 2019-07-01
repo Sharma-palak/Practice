@@ -135,3 +135,15 @@ class Logout(View):
         return redirect('home')
 
 
+class Product_detailView(View):
+
+    def get(self,request,id,*args,**kwargs):
+        print(id)
+        context = {'detail':Product.objects.filter(id=id),}
+        return render(request, 'ecommerce/product_detail.html',context)
+
+class show_genres(View):
+
+    def get(self,request,*args,**kwargs):
+        return render(request,'ecommerce/category_detail.html', {'genres': Category.objects.all()})
+

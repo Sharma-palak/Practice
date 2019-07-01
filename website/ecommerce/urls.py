@@ -12,6 +12,9 @@ urlpatterns = [
     re_path(r'^otp_verify/(?P<id>[0-9]+)/$', views.Activate_Otp.as_view() ,name='otp_verify'),
     re_path(r'^login/$' ,views.Login.as_view() ,name ='login'),
     re_path(r'^logout/$' ,views.Logout.as_view() , name ='logout'),
+    re_path(r'^detail/(?P<id>[0-9]+)/$',views.Product_detailView.as_view() ,name ='detail'),
+    re_path(r'^genres/$', views.show_genres.as_view(),name='genres'),
+
 
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

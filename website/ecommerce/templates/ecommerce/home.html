@@ -12,15 +12,27 @@
           WELCOME TO HOME PAGE <br> ECOMMERCE WEBSITE <i class="fa fa-bell bells"></i>
 
 </div>
-<div>
-{% if Product %}
-{% for p in Product %}
-    <img src="{{p.image.url}}">
-<p>  {{p.name}} </p>
-<p>{{p.quantity}}</p>
 
-{% endfor %}
-{% endif %}
+<div>
+
+    {% if Product %}
+    {% for p in Product %}
+
+ <a href="{% url 'detail' p.id %}">
+
+<div class="gallery">
+
+    <img src="{{p.image.url}}" alt="Cinque Terre" width="60%" height="40%">
+
+  <div class="desc">
+      <p> {{p.name}}</p>
+      <p>{{p.quantity}}</p>
+  </div>
+
+</div>   </a>
+
+    {% endfor %}
+    {% endif %}
 </div>
 
 {%  endblock %}
