@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from .models import *
-
+from mptt.forms import TreeNodeChoiceField
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=50, help_text='Required')
 
@@ -81,3 +81,9 @@ class LoginForm(forms.ModelForm):
             raise forms.ValidationError("Incorrect password")
         return password
 
+class Category_Display(forms.ModelForm):
+    category = TreeNodeChoiceField(queryset=Category.objects.all())
+
+    class Meta:
+        model = Category
+        fields = ['name','category']

@@ -147,3 +147,5 @@ class show_genres(View):
     def get(self,request,*args,**kwargs):
         return render(request,'ecommerce/category_detail.html', {'genres': Category.objects.all()})
 
+
+
