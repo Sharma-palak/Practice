@@ -19,8 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('godadmin/', admin.site.urls),
     path(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include('ecommerce.urls')),
+    path('', include('ecommerce.urls_customer')),
+    path('admin/', include('ecommerce.urls_admin')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

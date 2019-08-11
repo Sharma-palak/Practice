@@ -3,7 +3,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from .models import *
+from . import forms
+from django import forms
+from django.contrib import messages
 from mptt.forms import TreeNodeChoiceField
+
+class AdminLoginForm(forms.Form):
+    username = forms.CharField(max_length=100,required=True)
+    password = forms.CharField(widget=forms.PasswordInput(),required=True)
+
+
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=50, help_text='Required')
 
@@ -87,3 +96,10 @@ class Category_Display(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name','category']
+
+class Add_Category(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields =['name','slug','parent']
+
+
