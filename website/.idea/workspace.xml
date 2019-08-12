@@ -6,9 +6,11 @@
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin-category.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin-category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/urls_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/urls_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/views_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views_admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

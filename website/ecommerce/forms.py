@@ -100,6 +100,6 @@ class Category_Display(forms.ModelForm):
 class Add_Category(forms.ModelForm):
     class Meta:
         model = Category
-        fields =['name','slug','parent']
+        fields =['name','slug']
 
-
+class Add_Subcategory(forms.ModelForm)

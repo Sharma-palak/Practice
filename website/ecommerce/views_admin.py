@@ -6,6 +6,7 @@ from django.views import View,generic
 from django.contrib import messages
 from .forms import AdminLoginForm , Add_Category
 from . import forms
+from .models import *
 
 class AdminLoginView(generic.ListView):
     form_admin= forms.AdminLoginForm()
@@ -35,12 +36,27 @@ class AdminLoginView(generic.ListView):
                 return redirect("admin_login")
         return render(request, self.template_name, {'form': form})
 
+class Logout(View):
+
+    def get(self,request,*args,**kwargs):
+        auth.logout(request)
+        return render(request,'ecommerce/admin_login.html',{'message':"You are logout successfully!!"})
+
 
 class Category_View(View):
       form = Add_Category()
+
+      def dispatch(self, request, *args, **kwargs):
+          if not request.user.is_superuser:
+              return redirect('admin_login')
+          return super(Category_View, self).dispatch(request, *args, **kwargs)
+
       def post(self,request,*args,**kwargs):
           form = Add_Category(request.POST)
+          print("1")
           if form.is_valid():
+              print("2")
+              form.save()
               return render(request,'ecommerce/admin-category.html',{'form':form})
           else :
               return render(request,'ecommerce/admin-category.html',{'message':"error"})
@@ -53,3 +69,10 @@ class Admin_page(View):
 
       def get(self,request,*args,**kwargs):
           return render(request ,'ecommerce/admin_main.html')
+
+class Add_Subcategory(View):
+
+    def post(self,request,*args,**kwargs):
+
+    def get(self,request,*args,**kwargs):
+        return render(request,'ecommerce/admin_subcategory.html')

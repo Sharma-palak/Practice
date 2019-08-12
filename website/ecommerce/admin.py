@@ -3,10 +3,14 @@ from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 
 from .models import *
+
 class Add_Category(admin.ModelAdmin):
-    list_display =('name','slug','parent')
+    search_fields=['category']
+    list_display =('name','slug',)
     class Meta:
         model=Category
+
+
 
 admin.site.register(Otp_Generate)
 admin.site.register(Product)

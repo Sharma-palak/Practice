@@ -7,8 +7,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
      re_path(r'^add_category/$',views_admin.Category_View.as_view(),name='add'),
-     re_path(r'^login/$',views_admin.AdminLoginView.as_view(),name='login'),
+     re_path(r'^$',views_admin.AdminLoginView.as_view(),name='admin_login'),
      re_path(r'^main/$',views_admin.Admin_page.as_view(),name='admin_main'),
+     re_path(r'^logout/$',views_admin.Logout.as_view(),{'next_page': 'admin_login'},name='admin_logout'),
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

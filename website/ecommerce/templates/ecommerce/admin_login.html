@@ -1,5 +1,12 @@
 <form method="post">
     {% csrf_token %}
-    {{form}}
+<label for="id_username">Username:</label>
+    <input type="text" name="username" maxlength="100" required="" id="id_username">
+    <label for="id_password">Password:</label>
+    <input type="password" name="password" required="" id="id_password">
      <button type="submit" style="background-color:light-blue; font-size:16px; padding:10px; border-radius:20px; cursor:pointer; margin-left:8%; ">LOG IN</button>
+    {% for error in messages %}
+    <p>{{error}}</p>
+    {% endfor %}
+
 </form>

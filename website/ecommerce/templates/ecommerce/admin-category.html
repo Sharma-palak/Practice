@@ -1,4 +1,9 @@
 <form method="POST">
     {% csrf_token %}
-    {{form}}
+    <label for="id_name">Name:</label>
+    <input type="text" name="name" maxlength="200" required="" id="id_name">
+    <label for="id_slug">Slug:</label>
+    <input type="text" name="slug" maxlength="50" id="id_slug">
+
+    <br><button type="submit" class="btn btn-primary btn-raised">Submit</button>
 </form>
