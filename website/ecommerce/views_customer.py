@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import *
 from .models import *
 from django.contrib import messages
 import random

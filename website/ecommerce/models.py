@@ -27,15 +27,16 @@ class Category(MPTTModel):
 
 class Filters(models.Model):
     name = models.CharField(max_length=200)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE,)
+    category = models.ManyToManyField(Category)
     def __str__(self):
          return self.name+" "+self.category.name
 
-class Filter_Features(models.Model):
-    name = models.CharField(max_length=200)
-    filter = models.ForeignKey(Filters,on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name +" "+ self.filter.name
+# class Filter_Features(models.Model):
+#     name = models.CharField(max_length=200)
+#     filter = models.ForeignKey(Filters,on_delete=models.CASCADE)
+#     def __str__(self):
+#         return self.name +" "+ self.filter.name
+#
 
 
 
@@ -81,4 +82,3 @@ class Product_Detail(models.Model):
     description = RichTextUploadingField(blank=True)
     def __str__(self):
         return self.name.name
-

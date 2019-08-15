@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    {{message}}
+    <br><br> <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+</form>

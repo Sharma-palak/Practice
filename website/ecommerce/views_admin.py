@@ -4,9 +4,10 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.views import View,generic
 from django.contrib import messages
-from .forms import AdminLoginForm , Add_Category
+from .forms import AdminLoginForm , Add_Category,Sub_category,Features_Form
 from . import forms
 from .models import *
+
 
 class AdminLoginView(generic.ListView):
     form_admin= forms.AdminLoginForm()
@@ -72,7 +73,41 @@ class Admin_page(View):
 
 class Add_Subcategory(View):
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            return redirect('admin_login')
+        return super(Add_Subcategory, self).dispatch(request, *args, **kwargs)
+
     def post(self,request,*args,**kwargs):
+        form = Sub_category(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'ecommerce/admin_main.html',{'form':form})
+        else :
+            return render(request,'ecommerce/admin_subcategory.html',{'message':"error"})
+
 
     def get(self,request,*args,**kwargs):
-        return render(request,'ecommerce/admin_subcategory.html')
+        form = Sub_category()
+        return render(request,'ecommerce/admin_subcategory.html',{'form':form})
+
+class Add_Features(View):
+    def dispatch(self,request,*args,**kwargs):
+        if not request.user.is_superuser:
+            return redirect('admin_login')
+        return super(Add_Features,self).dispatch(request,*args,**kwargs)
+
+    def post(self,request,*args,**kwargs):
+        form = Features_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'ecommerce/admin_main.html',{'form':form,'message':'saved successfully'})
+        else :
+            return render(request,'ecommerce/admin_features',{'form':form})
+
+    def get(self,request,*args,**kwargs):
+        form = Features_Form()
+        return render(request,'ecommerce/admin_features.html',{'form':form})
+
+
+

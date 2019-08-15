@@ -102,4 +102,12 @@ class Add_Category(forms.ModelForm):
         model = Category
         fields =['name','slug']
 
-class Add_Subcategory(forms.ModelForm)
+class Sub_category(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields =['parent','name','slug']
+
+class Features_Form(forms.ModelForm):
+    class Meta:
+        model = Filters
+        fields =[ 'category','name']

@@ -10,13 +10,18 @@ class Add_Category(admin.ModelAdmin):
     class Meta:
         model=Category
 
+class Filter_Admin(admin.ModelAdmin):
+    search_fields=['category']
+    list_display=('category','name',)
+    class Meta:
+        model = Filters
 
 
 admin.site.register(Otp_Generate)
 admin.site.register(Product)
 admin.site.register(Category,Add_Category)
 admin.site.register(Product_Detail)
-admin.site.register(Filters)
-admin.site.register(Filter_Features)
+admin.site.register(Filters,Filter_Admin)
+#admin.site.register(Filter_Features)
 
 
