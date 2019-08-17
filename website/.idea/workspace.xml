@@ -7,10 +7,8 @@
       <change beforePath="$PROJECT_DIR$/ecommerce/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin-category.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/admin-category.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/urls_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/urls_admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/views_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views_admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/views_customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views_customer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/project-quizportal/quiz-portal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

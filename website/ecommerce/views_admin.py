@@ -109,5 +109,22 @@ class Add_Features(View):
         form = Features_Form()
         return render(request,'ecommerce/admin_features.html',{'form':form})
 
+class Add_Options(View):
+    def dispatch(self,request,*args,**kwargs):
+        if not request.user.is_superuser:
+            return redirect('admin_login')
+        return super(Add_Options,self).dispatch(request,*args,**kwargs)
+    def post(self,request,*args,**kwargs):
+        form = Option_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'ecommerce/admin_main.html', {'form': form, 'message': 'saved successfully'})
+        else:
+            return render(request, 'ecommerce/features_option', {'form': form})
+
+    def get(self, request, *args, **kwargs):
+        form = Features_Form()
+        return render(request, 'ecommerce/features_option.html', {'form': form})
+
 
 

@@ -110,4 +110,15 @@ class Sub_category(forms.ModelForm):
 class Features_Form(forms.ModelForm):
     class Meta:
         model = Filters
-        fields =[ 'category','name']
+        fields =['name','category']
+
+    def __init__(self, *args, **kwargs):
+        super(Features_Form, self).__init__(*args, **kwargs)
+        self.fields["category"].widget = forms.widgets.CheckboxSelectMultiple()
+        self.fields["category"].help_text = ""
+        self.fields["category"].queryset = Category.objects.all()
+
+class Option_Form(forms.ModelForm):
+    class Meta:
+        model = Filter_options
+        fields =['option','name']

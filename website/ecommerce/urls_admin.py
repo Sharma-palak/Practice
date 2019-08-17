@@ -12,6 +12,7 @@ urlpatterns = [
      re_path(r'^main/$',views_admin.Admin_page.as_view(),name='admin_main'),
      re_path(r'^logout/$',views_admin.Logout.as_view(),{'next_page': 'admin_login'},name='admin_logout'),
      re_path(r'^add_features/$',views_admin.Add_Features.as_view(),name='admin_features'),
+     re_path(r'^add_options/$',views_admin.Add_Options.as_view(),name='add_options'),
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
