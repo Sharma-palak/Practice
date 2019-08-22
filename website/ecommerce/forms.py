@@ -107,10 +107,18 @@ class Sub_category(forms.ModelForm):
         model = Category
         fields =['parent','name','slug']
 
+#
+# class Option_Form(forms.ModelForm):
+#     class Meta:
+#         model = Feature_Options
+#         fields = ['name']
+
+
 class Features_Form(forms.ModelForm):
+
     class Meta:
         model = Filters
-        fields =['name','category']
+        fields =['name_feature','category']
 
     def __init__(self, *args, **kwargs):
         super(Features_Form, self).__init__(*args, **kwargs)
@@ -118,7 +126,9 @@ class Features_Form(forms.ModelForm):
         self.fields["category"].help_text = ""
         self.fields["category"].queryset = Category.objects.all()
 
-class Option_Form(forms.ModelForm):
-    class Meta:
+class Feature_Options(forms.ModelForm):
+
+    class Meta :
         model = Filter_options
-        fields =['option','name']
+        fields =['name']
+

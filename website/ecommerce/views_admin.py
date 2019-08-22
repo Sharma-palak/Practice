@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.views import View,generic
 from django.contrib import messages
-from .forms import AdminLoginForm , Add_Category,Sub_category,Features_Form
+from .forms import AdminLoginForm , Add_Category,Sub_category,Features_Form,Feature_Options
 from . import forms
 from .models import *
 
@@ -99,32 +99,41 @@ class Add_Features(View):
 
     def post(self,request,*args,**kwargs):
         form = Features_Form(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request,'ecommerce/admin_main.html',{'form':form,'message':'saved successfully'})
+        form_option = Feature_Options(request.POST)
+        if form.is_valid() and form_option.is_valid():
+            opt = form_option.save(commit = False)
+            opt.option = form.save()
+            print(opt.option.name_feature)
+            print("1")
+            opt.save()
+            return render(request,'ecommerce/admin_main.html', {'form':form,'message':'saved successfully','form_option':form_option})
         else :
-            return render(request,'ecommerce/admin_features',{'form':form})
+            return render(request,'ecommerce/admin_features.html', {'form':form,'form_option':form_option,'message':"error"})
 
     def get(self,request,*args,**kwargs):
         form = Features_Form()
-        return render(request,'ecommerce/admin_features.html',{'form':form})
+        form_option = Feature_Options()
+        return render(request,'ecommerce/admin_features.html',{'form':form,'form_option':form_option})
 
-class Add_Options(View):
-    def dispatch(self,request,*args,**kwargs):
-        if not request.user.is_superuser:
-            return redirect('admin_login')
-        return super(Add_Options,self).dispatch(request,*args,**kwargs)
-    def post(self,request,*args,**kwargs):
-        form = Option_Form(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'ecommerce/admin_main.html', {'form': form, 'message': 'saved successfully'})
-        else:
-            return render(request, 'ecommerce/features_option', {'form': form})
 
-    def get(self, request, *args, **kwargs):
-        form = Features_Form()
-        return render(request, 'ecommerce/features_option.html', {'form': form})
+# class Add_Options(View):
+#     def dispatch(self,request,*args,**kwargs):
+#         if not request.user.is_superuser:
+#             return redirect('admin_login')
+#         return super(Add_Options, self).dispatch(request,*args,**kwargs)
+#
+#     def post(self,request,*args,**kwargs):
+#         form = Option_Form(request.POST)
+#         form_option =
+#         if form.is_valid():
+#             form.save()
+#             return render(request, 'ecommerce/admin_main.html', {'form': form,'message': 'saved successfully'})
+#         else:
+#             return render(request, 'ecommerce/features_option.html', {'form': form})
+#
+#     def get(self, request, *args, **kwargs):
+#         form = Option_Form()
+#         return render(request, 'ecommerce/features_option.html', {'form': form})
 
 
 

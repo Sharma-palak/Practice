@@ -1,4 +1,17 @@
 <form method ="post">
     {% csrf_token %}
-    {{form}}
+<!--    {{form}}-->
+   <div class ="select">
+  {{form.option.label_tag}}
+  {{form.option}}
+   </div>
+    <br>
+    <label for="id_name">Name:</label>
+    <input type="text" name="name" maxlength="200" required="" id="id_name"> <br>
+    <br>
+    <label for="id_name1">Name:</label>
+    <input type="text" name="name" maxlength="200" required="" id="id_name1"> <br>
+    <br>
+
+    <button type="submit" style="background-color:light-blue; font-size:16px; padding:10px; border-radius:20px; cursor:pointer; margin-left:8%; ">Add</button>
 </form>

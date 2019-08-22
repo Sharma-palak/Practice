@@ -12,7 +12,7 @@ class Add_Category(admin.ModelAdmin):
 
 class Filter_Admin(admin.ModelAdmin):
    # search_fields=['category']
-    list_display=('name','categoryss')
+    list_display=('name_feature','categoryss')
     class Meta:
         model = Filters
 
@@ -21,7 +21,7 @@ class Filter_Admin(admin.ModelAdmin):
         return "\n".join([p.name for p in obj.category.all()])
 
 class Option_admin(admin.ModelAdmin):
-    list_display =('name','option')
+    list_display =['name']
     class Meta:
         model = Filter_options
 

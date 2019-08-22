@@ -24,18 +24,22 @@ class Category(MPTTModel):
     def __str__(self):
         return self.name
 
-
 class Filters(models.Model):
-    name = models.CharField(max_length=200)
+    name_feature = models.CharField(max_length=200)
     category = models.ManyToManyField(Category)
+
     def __str__(self):
-         return "%s"%(self.name)+" "+"%s"%(self.category.name)
+         return "%s"%(self.name_feature)
+
 
 class Filter_options(models.Model):
     name = models.CharField(max_length=200)
     option = models.ForeignKey(Filters,on_delete=models.CASCADE)
     def __str__(self):
-        return self.name +" "+ self.filter.name
+        return self.name +" "+ self.option.name_feature
+
+
+
 
 
 
@@ -82,3 +86,4 @@ class Product_Detail(models.Model):
     description = RichTextUploadingField(blank=True)
     def __str__(self):
         return self.name.name
+
